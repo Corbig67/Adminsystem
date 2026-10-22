@@ -43,8 +43,8 @@ Config.Weapons = {
     WEAPON_PISTOL_MK2 = { group = 'pistol' },
     WEAPON_COMBATPISTOL = { group = 'pistol' },
     WEAPON_APPISTOL = { group = 'pistol', recoil = 0.35, maxHitsPerSecond = 16 },
-    WEAPON_STUNGUN = { group = 'pistol', recoil = 0.2, range = 15 },
-    WEAPON_STUNGUN_MP = { group = 'pistol', recoil = 0.2, range = 15 },
+    WEAPON_STUNGUN = { group = 'pistol', recoil = 0.2, range = 15, headshot = false },
+    WEAPON_STUNGUN_MP = { group = 'pistol', recoil = 0.2, range = 15, headshot = false },
     WEAPON_PISTOL50 = { group = 'pistol', recoil = 1.10 },
     WEAPON_SNSPISTOL = { group = 'pistol', recoil = 0.65 },
     WEAPON_SNSPISTOL_MK2 = { group = 'pistol', recoil = 0.65 },
@@ -161,6 +161,37 @@ Config.NoRecoil = {
     heavy   = true
 }
 
+-- Kopfschuss ------------------------------------------------------------------------------------------
+-- Ein Treffer in Kopf/Hals tötet sofort. Erkannt wird beim Getroffenen selbst (zuverlässiger als GTA-Schaden).
+-- Einzelne Waffen: headshot = false in Config.Weapons (z. B. Taser).
+Config.Headshot = {
+    enabled = true,
+    groups  = { pistol = true, smg = true, rifle = true, mg = true, shotgun = true, sniper = true },
+    -- Helme, die schützen (Prop-Index 0 = Kopf). Leer = kein Schutz. Beispiel: male = { 150 }, female = { 149 }
+    helmets = { male = {}, female = {} }
+}
+
+-- "Stirbt nicht"-Fix: wer kurz nach einem Treffer bei sehr wenig HP hängen bleibt, stirbt richtig
+Config.DeathFix = {
+    enabled   = true,
+    threshold = 101,     -- HP (100 = tot in GTA)
+    window    = 3000     -- ms nach dem letzten Treffer
+}
+
+-- Hitmarker für den Schützen ----------------------------------------------------------------------------
+Config.Hitmarker = {
+    enabled  = true,
+    npcs     = false,    -- auch bei NPC-Treffern anzeigen
+    time     = 200,      -- ms sichtbar
+    size     = 0.010,    -- Größe (Bildschirmanteil)
+    color    = { 255, 255, 255, 220 },   -- normaler Treffer
+    headshot = { 255, 60, 60, 240 },     -- Kopfschuss / Kill
+    -- Töne (false = aus). GTA-Sounds: name + set
+    hitSound      = false,
+    headshotSound = { name = 'CHECKPOINT_PERFECT', set = 'HUD_MINI_GAME_SOUNDSET' },
+    killSound     = { name = 'CHECKPOINT_PERFECT', set = 'HUD_MINI_GAME_SOUNDSET' }
+}
+
 -- Kampfregeln (für alle Spieler gleich) --------------------------------------------------------------
 Config.Rules = {
     noCombatRoll     = true,     -- keine Kampfrolle beim Zielen
@@ -173,11 +204,13 @@ Config.Rules = {
 
 -- Server-Prüfung gegen Cheater -------------------------------------------------------------------------
 -- Jede Prüfung: 'cancel' = Treffer verwerfen + melden, 'log' = nur melden, false = aus
+-- Standard so eingestellt, dass echte Treffer NIE verworfen werden: nur eindeutige Fälle werden verworfen,
+-- alles, was durch Lag/Kopfschüsse auch legitim vorkommen kann, wird nur gemeldet.
 Config.Validation = {
     disallowedWeapon = 'cancel',   -- Waffe mit allowed = false
-    notHeld          = 'cancel',   -- Schütze hat die Waffe nicht in der Hand
+    notHeld          = 'log',      -- Schütze hat die Waffe nicht in der Hand (Server sieht Waffenwechsel verzögert)
     distance         = 'cancel',   -- Treffer weiter als range
-    damage           = 'cancel',   -- Schaden größer als maxDamage
+    damage           = 'log',      -- Schaden größer als maxDamage (Kopfschüsse machen in GTA sehr viel Schaden)
     fireRate         = 'log',      -- mehr Treffer pro Sekunde als maxHitsPerSecond
     heldGrace        = 1500        -- ms: kurz nach einem Waffenwechsel zählt auch die vorige Waffe noch
 }

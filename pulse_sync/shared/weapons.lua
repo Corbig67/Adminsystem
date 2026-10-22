@@ -11,6 +11,7 @@ for name, entry in pairs(Config.Weapons) do
     for key, value in pairs(group) do data[key] = value end
     for key, value in pairs(entry) do if key ~= 'group' then data[key] = value end end
     if data.noRecoil == nil then data.noRecoil = Config.NoRecoil[entry.group] == true end
+    if data.headshot == nil then data.headshot = Config.Headshot.groups[entry.group] == true end
     Sync.weapons[Sync.norm(joaat(name))] = data
 end
 

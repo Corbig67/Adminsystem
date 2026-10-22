@@ -13,6 +13,11 @@ Eigenständig, keine Abhängigkeiten, braucht **OneSync** für die Server-Prüfu
 - Kopfschüsse an/aus, Faustschlag-Schaden, NPCs lassen keine Waffen fallen
 - Gesperrte Waffen (`allowed = false`) werden sofort entfernt
 
+**Treffer, die ankommen**
+- Kopfschuss tötet sofort (beim Getroffenen über den Kopf-Knochen erkannt, nicht über GTA-Schaden). Taser ausgenommen, Helme optional
+- „Stirbt nicht“-Fix: wer kurz nach einem Treffer bei 1 HP hängen bleibt, stirbt richtig
+- Hitmarker für den Schützen: weiß = Treffer, rot = Kopfschuss/Kill, mit Ton
+
 **Server-Prüfung jedes Treffers (gegen Cheater)**
 | Prüfung | Erkennt |
 |---|---|
@@ -23,6 +28,8 @@ Eigenständig, keine Abhängigkeiten, braucht **OneSync** für die Server-Prüfu
 | Gesperrte Waffe | Treffer mit verbotenen Waffen |
 
 Jede Prüfung: `'cancel'` (Treffer verwerfen + melden), `'log'` (nur melden) oder `false`.
+Standard: verworfen werden nur gesperrte Waffen und unmögliche Entfernungen – alles, was durch Lag oder hohen Kopfschuss-Schaden
+auch bei ehrlichen Spielern vorkommt, wird nur gemeldet. So geht kein echter Treffer verloren.
 Meldungen: Server-Konsole und optional Discord-Webhook (Name, ID, License, Discord).
 
 ## Empfohlene Einführung (großer Server)
