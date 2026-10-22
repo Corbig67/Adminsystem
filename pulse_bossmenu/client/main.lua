@@ -123,15 +123,32 @@ RegisterNUICallback('inviteAnswer', function(data, cb)
 end)
 
 -- Bossmenü-Punkte ---------------------------------------------------------------------------------------
+local locations = {}
+
+RegisterNetEvent('pulse_bossmenu:locations', function(list)
+    locations = {}
+    for job, points in pairs(list or {}) do
+        locations[job] = {}
+        for i, p in ipairs(points) do locations[job][i] = vector3(p.x, p.y, p.z) end
+    end
+end)
+
+CreateThread(function()
+    TriggerServerEvent('pulse_bossmenu:requestLocations')
+    for _, name in ipairs({ Config.SetBoss.command, Config.SetBoss.delCommand }) do
+        if name then TriggerEvent('chat:addSuggestion', '/' .. name, 'Bossmenü-Punkt', { { name = 'job', help = 'z. B. police' } }) end
+    end
+end)
+
 CreateThread(function()
     local m = Config.Marker
     while true do
         local sleep = 1000
         if not isOpen and ESX and ESX.PlayerData and ESX.PlayerData.job then
-            local jobConfig = Config.Jobs[ESX.PlayerData.job.name]
-            if jobConfig and jobConfig.locations then
+            local points = locations[ESX.PlayerData.job.name]
+            if points then
                 local pos = GetEntityCoords(PlayerPedId())
-                for i, loc in ipairs(jobConfig.locations) do
+                for i, loc in ipairs(points) do
                     local dist = #(pos - loc)
                     if dist < m.drawDistance then
                         sleep = 0

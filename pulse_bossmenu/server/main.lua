@@ -125,6 +125,35 @@ local function canAssign(ownGrade, grade)
     return grade < ownGrade
 end
 
+-- Bossmenü-Punkte (Config.Jobs + per /setboss gesetzte aus der Datenbank) ------------------------------
+local jobLocations = {}   -- [job] = { vector3, ... }
+
+local function loadLocations()
+    local fromDb = {}
+    for _, row in ipairs(MySQL.query.await('SELECT job, x, y, z FROM pulse_bossmenu_locations ORDER BY id') or {}) do
+        fromDb[row.job] = fromDb[row.job] or {}
+        fromDb[row.job][#fromDb[row.job] + 1] = vector3(row.x, row.y, row.z)
+    end
+
+    jobLocations = {}
+    for job, jobConfig in pairs(Config.Jobs) do
+        if jobConfig.locations and #jobConfig.locations > 0 then jobLocations[job] = jobConfig.locations end
+    end
+    for job, list in pairs(fromDb) do jobLocations[job] = list end
+end
+
+local function syncLocations(target)
+    TriggerClientEvent('pulse_bossmenu:locations', target or -1, jobLocations)
+end
+
+local function isBossJob(job)
+    return Config.Jobs[job] ~= nil or jobLocations[job] ~= nil
+end
+
+RegisterNetEvent('pulse_bossmenu:requestLocations', function()
+    syncLocations(source)
+end)
+
 -- Einstellungen ------------------------------------------------------------------------------------
 local function getSettings(job)
     if settingsCache[job] then return settingsCache[job] end
@@ -520,13 +549,12 @@ ESX.RegisterServerCallback('pulse_bossmenu:open', function(source, cb, locationI
     if not xPlayer then return cb(fail(L.error)) end
 
     local job = xPlayer.job.name
-    local jobConfig = Config.Jobs[job]
-    local jobData = jobConfig and getJob(job)
+    local jobData = isBossJob(job) and getJob(job)
     if not jobData then return cb(fail(L.notInJob)) end
 
     local location
     if locationIndex then
-        location = jobConfig.locations and jobConfig.locations[tonumber(locationIndex) or 0]
+        location = jobLocations[job] and jobLocations[job][tonumber(locationIndex) or 0]
         if not location then return cb(fail(L.notInJob)) end
         local coords = playerCoords(source)
         if coords and #(coords - location) > Config.MaxDistance then return cb(fail(L.tooFar)) end
@@ -633,7 +661,7 @@ local function payday()
     local byJob = {}
     for _, xPlayer in ipairs(onlinePlayers()) do
         local job = xPlayer.job.name
-        if Config.Jobs[job] then
+        if isBossJob(job) then
             byJob[job] = byJob[job] or {}
             byJob[job][#byJob[job] + 1] = xPlayer
         end
@@ -709,6 +737,21 @@ MySQL.ready(function()
         ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4
     ]])
 
+    MySQL.query.await([[
+        CREATE TABLE IF NOT EXISTS `pulse_bossmenu_locations` (
+            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `job` VARCHAR(50) NOT NULL,
+            `x` FLOAT NOT NULL,
+            `y` FLOAT NOT NULL,
+            `z` FLOAT NOT NULL,
+            `created_by` VARCHAR(100) NULL DEFAULT NULL,
+            `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`), KEY `idx_job` (`job`)
+        ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4
+    ]])
+    loadLocations()
+    syncLocations()
+
     if Config.History.keepDays > 0 then
         MySQL.update('DELETE FROM pulse_bossmenu_logs WHERE created_at < NOW() - INTERVAL ? DAY', { Config.History.keepDays })
         MySQL.update('DELETE FROM pulse_bossmenu_transactions WHERE created_at < NOW() - INTERVAL ? DAY', { Config.History.keepDays })
@@ -722,4 +765,48 @@ MySQL.ready(function()
             end
         end)
     end
+end)
+
+-- /setboss und /delboss ------------------------------------------------------------------------------------------------
+local function isAdmin(xPlayer)
+    local group = xPlayer.getGroup()
+    for _, g in ipairs(Config.SetBoss.groups) do if g == group then return true end end
+    return false
+end
+
+local function bossCommand(name, handler)
+    if not name then return end
+    RegisterCommand(name, function(source, args)
+        if source == 0 then return print('[pulse_bossmenu] Nur im Spiel nutzbar') end
+        local xPlayer = ESX.GetPlayerFromId(source)
+        if not xPlayer or not isAdmin(xPlayer) then return notify(source, L.noAccess, 'error') end
+
+        local job = args[1] and args[1]:lower()
+        if not job then return notify(source, L.setBossUsage:format(name), 'error') end
+        if not getJob(job) then return notify(source, L.jobNotFound:format(job), 'error') end
+        handler(source, xPlayer, job)
+    end, false)
+end
+
+bossCommand(Config.SetBoss.command, function(source, xPlayer, job)
+    local coords = playerCoords(source)
+    if not coords then return notify(source, L.noOneSync, 'error') end
+
+    if Config.SetBoss.mode ~= 'add' then
+        MySQL.update.await('DELETE FROM pulse_bossmenu_locations WHERE job = ?', { job })
+    end
+    MySQL.insert.await('INSERT INTO pulse_bossmenu_locations (job, x, y, z, created_by) VALUES (?, ?, ?, ?, ?)', {
+        job, coords.x, coords.y, coords.z, xPlayer.getName()
+    })
+    loadLocations()
+    syncLocations()
+    notify(source, L.setBossDone:format(getJob(job).label))
+end)
+
+bossCommand(Config.SetBoss.delCommand, function(source, _, job)
+    local affected = MySQL.update.await('DELETE FROM pulse_bossmenu_locations WHERE job = ?', { job })
+    if not affected or affected < 1 then return notify(source, L.delBossNone:format(getJob(job).label), 'error') end
+    loadLocations()
+    syncLocations()
+    notify(source, L.delBossDone:format(getJob(job).label))
 end)

@@ -53,13 +53,21 @@ höchster vergebbarer Rang), Beträge und Kassenstand. Die UI zeigt nur an.
 | `Config.Notify` | Eigene Benachrichtigung (z. B. ox_lib) |
 | `Config.Locale` | Alle Texte |
 
+## Bossmenü-Punkt per Befehl
+
+- `/setboss <job>` – setzt den Punkt an deiner Position (in der Datenbank gespeichert, sofort für alle sichtbar).
+  Standard: ersetzt den alten Punkt, mit `Config.SetBoss.mode = 'add'` kommt ein weiterer dazu.
+- `/delboss <job>` – löscht die gesetzten Punkte, danach gelten wieder die aus `Config.Jobs`.
+- Befehlsnamen und erlaubte ESX-Gruppen stehen in `Config.SetBoss`.
+- Auch Jobs, die nicht in `Config.Jobs` stehen, bekommen so ein Bossmenü (mit den Standardrechten).
+
 ## Aus anderen Scripts öffnen (z. B. ox_target)
 
 ```lua
-exports.pulse_bossmenu:OpenBossMenu(1)   -- Index des Punkts aus Config.Jobs.<job>.locations
+exports.pulse_bossmenu:OpenBossMenu(1)   -- Index des Bossmenü-Punkts des Jobs (per /setboss oder aus Config.Jobs)
 exports.pulse_bossmenu:OpenBossMenu()    -- ohne Punkt, nur mit Config.AllowAnywhere = true
 ```
 
 ## Tabellen (fest)
 
-`pulse_bossmenu_logs`, `pulse_bossmenu_transactions`, `pulse_bossmenu_settings`, `pulse_bossmenu_members`
+`pulse_bossmenu_logs`, `pulse_bossmenu_transactions`, `pulse_bossmenu_settings`, `pulse_bossmenu_members`, `pulse_bossmenu_locations`

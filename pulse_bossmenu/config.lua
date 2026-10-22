@@ -18,6 +18,18 @@ Config.AllowAnywhere = false       -- true = Öffnen ohne Bossmenü-Punkt erlaub
 Config.Marker = { type = 22, size = vector3(0.5, 0.5, 0.4), color = { r = 47, g = 123, b = 255, a = 160 }, drawDistance = 10.0, bob = true, rotate = true }
 Config.HelpText = 'Drücke ~INPUT_CONTEXT~, um das Bossmenü zu öffnen'
 
+-- Bossmenü-Punkt per Befehl setzen ------------------------------------------------------
+-- /setboss <job> setzt den Punkt an deiner Position (wird in der Datenbank gespeichert),
+-- /delboss <job> löscht gesetzte Punkte wieder (dann gelten die Punkte aus Config.Jobs).
+-- Gesetzte Punkte ersetzen die Punkte aus Config.Jobs für diesen Job.
+-- Jobs, die nicht in Config.Jobs stehen, bekommen damit ebenfalls ein Bossmenü (mit Standardrechten).
+Config.SetBoss = {
+    command    = 'setboss',                     -- false = aus
+    delCommand = 'delboss',                     -- false = aus
+    groups     = { 'admin', 'superadmin' },     -- ESX-Gruppen, die die Befehle nutzen dürfen
+    mode       = 'replace'                      -- 'replace' = alter Punkt wird ersetzt, 'add' = weiterer Punkt
+}
+
 -- Rechte -------------------------------------------------------------------------------
 -- Wer darf welchen Bereich nutzen?
 --   'boss'          = nur der höchste Rang
@@ -139,6 +151,11 @@ Config.Locale = {
     notEnoughSociety = 'So viel ist nicht in der Kasse',
     societyMissing   = 'Für diese Fraktion gibt es keine Firmenkasse',
     salaryTooHigh    = 'Das Gehalt ist zu hoch (max. %s)',
+    setBossUsage     = 'Benutzung: /%s <job>',
+    setBossDone      = 'Bossmenü-Punkt für %s gesetzt',
+    delBossDone      = 'Gesetzte Bossmenü-Punkte für %s gelöscht',
+    delBossNone      = 'Für %s sind keine Punkte per Befehl gesetzt',
+    jobNotFound      = 'Den Job %s gibt es nicht',
     noOneSync        = 'Spieler in der Nähe können nur mit OneSync gesucht werden',
     error            = 'Es ist ein Fehler aufgetreten',
 

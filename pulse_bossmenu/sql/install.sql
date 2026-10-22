@@ -33,3 +33,14 @@ CREATE TABLE IF NOT EXISTS `pulse_bossmenu_members` (
     `hired_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`identifier`, `job`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `pulse_bossmenu_locations` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `job` VARCHAR(50) NOT NULL,
+    `x` FLOAT NOT NULL,
+    `y` FLOAT NOT NULL,
+    `z` FLOAT NOT NULL,
+    `created_by` VARCHAR(100) NULL DEFAULT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`), KEY `idx_job` (`job`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
