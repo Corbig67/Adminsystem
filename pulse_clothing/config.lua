@@ -9,6 +9,8 @@ Config.InteractRange  = 1.5             -- Abstand zum Marker zum Öffnen
 Config.MaxDistance    = 6.0             -- serverseitig: max. Abstand zum Laden beim Kaufen (OneSync)
 Config.RotateStep     = 12.0            -- Grad pro Drehung (A/D oder Buttons)
 Config.AutoCreateTable = true           -- Tabelle pulse_outfits beim Start automatisch anlegen
+Config.CloseAfterBuy  = true            -- Laden nach erfolgreichem Kauf automatisch schließen
+Config.CloseDelay     = 600             -- ms Verzögerung, damit Kauf-Ton/Animation noch zu sehen ist
 
 -- Kategorien: müssen zu html/js/app.js (CONFIG.categories) passen.
 -- Die Preise hier sind maßgeblich, sie werden an die UI geschickt und beim Kauf nachgerechnet.

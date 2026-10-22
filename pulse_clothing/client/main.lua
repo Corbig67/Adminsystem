@@ -160,12 +160,20 @@ end)
 RegisterNUICallback('buy', function(data, cb)
     if not isOpen then return cb({ ok = false, error = 'Der Laden ist nicht geöffnet' }) end
     local res = await('pulse_clothing:buy', data)
-    if res and res.ok then
-        restoreSkin = res.data.skin
-        loadSkin(res.data.skin)
-        res.data.skin = nil
+    if not res or not res.ok then return cb(res or { ok = false, error = 'Keine Antwort vom Server' }) end
+
+    restoreSkin = res.data.skin
+    loadSkin(res.data.skin)
+    res.data.skin = nil
+    cb(res)
+
+    if Config.CloseAfterBuy then
+        Wait(Config.CloseDelay)
+        closeShop(false)
+        local msg = ('Gekauft für $%s'):format(ESX.Math.GroupDigits(res.data.total or 0))
+        if res.data.outfits and data.outfit then msg = msg .. (' · Outfit „%s“ gespeichert'):format(data.outfit) end
+        ESX.ShowNotification(msg, 'success')
     end
-    cb(res or { ok = false, error = 'Keine Antwort vom Server' })
 end)
 
 RegisterNUICallback('wearOutfit', function(data, cb)
