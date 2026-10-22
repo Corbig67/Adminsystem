@@ -152,7 +152,13 @@ Config.Recoil = {
 -- Einzelne Waffen: noRecoil = true / false in Config.Weapons (überschreibt die Gruppe),
 -- z. B. WEAPON_PISTOL50 = { group = 'pistol', noRecoil = false } für etwas Rückstoß bei der .50
 Config.NoRecoil = {
-    pistol = true
+    pistol  = true,
+    smg     = true,
+    rifle   = true,
+    mg      = true,
+    shotgun = true,
+    sniper  = true,
+    heavy   = true
 }
 
 -- Kampfregeln (für alle Spieler gleich) --------------------------------------------------------------
