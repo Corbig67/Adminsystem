@@ -4,7 +4,8 @@ local lastSound = {}
 RegisterNetEvent('pulse_holster:sound', function(kind)
     local src = source
     if kind ~= 'holster' and kind ~= 'unholster' then return end
-    if not Config.Sound.enabled or Config.Sound.range <= 0 then return end
+    local sound = Config.Sound
+    if not sound.enabled or sound.mode ~= 'file' or not sound.others or sound.file.range <= 0 then return end
 
     local now = GetGameTimer()
     if lastSound[src] and now - lastSound[src] < 150 then return end

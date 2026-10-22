@@ -29,11 +29,23 @@ Config.SwitchDelay = 80
 
 -- Sound --------------------------------------------------------------------------
 Config.Sound = {
-    enabled   = true,
-    volume    = 0.35,          -- 0.0 - 1.0
-    range     = 8.0,           -- andere Spieler hören den Sound in diesem Umkreis (0 = nur du selbst)
-    holster   = 'holster.ogg', -- Dateien liegen in html/sounds/, eigene .ogg können einfach ersetzt werden
-    unholster = 'unholster.ogg'
+    enabled = true,
+    -- 'game' = echte GTA-Waffensounds (scharf, kommen aus der Spielfigur, andere hören sie automatisch)
+    -- 'file' = eigene .ogg-Dateien aus html/sounds/
+    mode    = 'game',
+    others  = true,            -- andere Spieler in der Nähe hören den Sound
+
+    game = {
+        holster   = { name = 'PICK_UP_WEAPON',  set = 'HUD_FRONTEND_CUSTOM_SOUNDSET' },
+        unholster = { name = 'WEAPON_PURCHASE', set = 'HUD_AMMO_SHOP_SOUNDSET' }
+    },
+
+    file = {
+        volume    = 0.5,           -- 0.0 - 1.0
+        range     = 8.0,           -- Hörweite für andere Spieler
+        holster   = 'holster.ogg',
+        unholster = 'unholster.ogg'
+    }
 }
 
 -- Holster-Kleidung -----------------------------------------------------------------

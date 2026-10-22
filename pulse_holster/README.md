@@ -6,7 +6,7 @@ Polizei-Holster-Animation für Pistolen und Taser. Überarbeitete und abgespeckt
 ## Funktionen
 
 - Polizei-Animation beim Ziehen und Wegstecken
-- **Sound** beim Ziehen (Druckknopf auf + Herausziehen) und Wegstecken (Reiben + Einrasten), andere Spieler in der Nähe hören ihn leiser
+- **Sound** beim Ziehen und Wegstecken: standardmäßig echte GTA-Waffensounds (scharf, 3D, andere Spieler hören sie), alternativ eigene `.ogg`-Dateien
 - **Sauberer Waffenwechsel**: Pistole → Taser steckt erst die Pistole weg, dann wird der Taser gezogen
 - Holster-Kleidung wechselt mit (Waffe im Holster ↔ leeres Holster)
 - Während der Animation kein Schießen, Zielen oder erneuter Waffenwechsel
@@ -34,7 +34,8 @@ Polizei-Holster-Animation für Pistolen und Taser. Überarbeitete und abgespeckt
 | `Config.WeaponGroups` / `Config.Weapons` | Welche Waffen animiert werden (Standard: alle Pistolen + Taser) |
 | `Config.IgnoredWeapons` | Ausnahmen |
 | `Config.SwitchDelay` | Pause zwischen Wegstecken und Ziehen beim Wechsel |
-| `Config.Sound` | An/aus, Lautstärke, Hörweite für andere, Dateinamen |
+| `Config.Sound` | An/aus, `mode = 'game'` (GTA-Sounds) oder `'file'` (eigene Dateien), welche GTA-Sounds, Lautstärke/Hörweite für Dateien |
 | `Config.Holsters` | Holster-Kleidung (Komponente, Drawable mit Waffe / leer) |
 
-Eigene Sounds: einfach `html/sounds/holster.ogg` und `html/sounds/unholster.ogg` ersetzen.
+Eigene Sounds: `Config.Sound.mode = 'file'` setzen und `html/sounds/holster.ogg` / `html/sounds/unholster.ogg` ersetzen.
+Andere GTA-Sounds: in `Config.Sound.game` Name und Soundset tauschen, z. B. `{ name = 'PICK_UP', set = 'HUD_FRONTEND_DEFAULT_SOUNDSET' }`.

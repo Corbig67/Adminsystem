@@ -17,28 +17,38 @@ local function canAnimate(ped)
 end
 
 -- Sound ----------------------------------------------------------------------------
-local function playSound(kind, volume)
-    local file = (kind == 'holster' or kind == 'unholster') and Config.Sound[kind]
+local SOUND <const> = Config.Sound
+
+local function playFile(kind, volume)
+    local file = (kind == 'holster' or kind == 'unholster') and SOUND.file[kind]
     if file then SendNUIMessage({ action = 'play', file = file, volume = volume }) end
 end
 
 local function holsterSound(kind)
-    if not Config.Sound.enabled then return end
-    playSound(kind, Config.Sound.volume)
-    if Config.Sound.range > 0 then TriggerServerEvent('pulse_holster:sound', kind) end
+    if not SOUND.enabled then return end
+
+    if SOUND.mode == 'game' then
+        -- GTA-Sound direkt an der Spielfigur; mit network = true hören ihn andere Spieler positionsgenau
+        local s = SOUND.game[kind]
+        if s then PlaySoundFromEntity(-1, s.name, cache.ped, s.set, SOUND.others, 0) end
+        return
+    end
+
+    playFile(kind, SOUND.file.volume)
+    if SOUND.others and SOUND.file.range > 0 then TriggerServerEvent('pulse_holster:sound', kind) end
 end
 
 RegisterNetEvent('pulse_holster:sound', function(src, kind)
-    if not Config.Sound.enabled or src == cache.serverId then return end
+    if not SOUND.enabled or SOUND.mode ~= 'file' or src == cache.serverId then return end
     local player = GetPlayerFromServerId(src)
     if player == -1 then return end
     local ped = GetPlayerPed(player)
     if ped == 0 then return end
 
-    local range = Config.Sound.range
+    local range = SOUND.file.range
     local dist = #(GetEntityCoords(cache.ped) - GetEntityCoords(ped))
     if dist > range then return end
-    playSound(kind, Config.Sound.volume * (1.0 - dist / range))
+    playFile(kind, SOUND.file.volume * (1.0 - dist / range))
 end)
 
 -- Holster-Kleidung -------------------------------------------------------------------
