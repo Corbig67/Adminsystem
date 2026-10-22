@@ -7,8 +7,8 @@ Eigenständig, keine Abhängigkeiten, braucht **OneSync** für die Server-Prüfu
 
 **Für alle Spieler gleich**
 - Schaden pro Waffe (Multiplikator, Standard 1.0 = GTA)
-- Eigener Rückstoß pro Waffe: nach oben + zufällig zur Seite, weich übertragen, eigene Faktoren für Ego-Perspektive und Fahrzeug
-- Keine Kampfrolle, kein Pistolenschlag, Fadenkreuz nur bei Snipern (alles einstellbar)
+- Rückstoß und Fadenkreuz bleiben GTA-Standard (optional: eigener Rückstoß mit `Config.Recoil.enabled = true`)
+- Keine Kampfrolle, kein Pistolenschlag (einstellbar)
 - Kopfschüsse an/aus, Faustschlag-Schaden, NPCs lassen keine Waffen fallen
 - Gesperrte Waffen (`allowed = false`) werden sofort entfernt
 

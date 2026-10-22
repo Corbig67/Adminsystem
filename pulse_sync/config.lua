@@ -139,8 +139,9 @@ Config.Weapons = {
 }
 
 -- Rückstoß -----------------------------------------------------------------------------------------
+-- Standard aus = normaler GTA-Rückstoß. Nur einschalten, wenn ein eigener Rückstoß gewünscht ist.
 Config.Recoil = {
-    enabled     = true,
+    enabled     = false,
     firstPerson = 0.7,      -- Faktor in der Ego-Perspektive
     vehicle     = 1.4,      -- Faktor beim Schießen aus Fahrzeugen
     smoothing   = 0.35      -- wie schnell der Rückstoß die Kamera bewegt (0.1 weich – 1.0 sofort)
@@ -150,7 +151,7 @@ Config.Recoil = {
 Config.Rules = {
     noCombatRoll     = true,     -- keine Kampfrolle beim Zielen
     noPistolWhip     = true,     -- kein Nahkampfschlag mit Schusswaffe in der Hand
-    reticle          = 'snipers',-- Fadenkreuz: 'all' = immer, 'none' = nie, 'snipers' = nur Scharfschützengewehre
+    reticle          = 'all',    -- Fadenkreuz: 'all' = immer (GTA-Standard), 'none' = nie, 'snipers' = nur Scharfschützengewehre
     noNpcWeaponDrops = true,     -- getötete NPCs lassen keine Waffen fallen
     headshots        = true,     -- kritische Treffer (Kopfschüsse) an
     meleeDamage      = 1.0       -- Faustschlag-Schaden (Multiplikator)
