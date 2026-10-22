@@ -7,9 +7,9 @@ Realistischer Schaden nach Trefferzone. Eigenständig, keine Abhängigkeiten (nu
 | Zone | Wirkung |
 |---|---|
 | **Kopf / Hals** | Sofort tot (Chance einstellbar, optional Schutz durch bestimmte Helme) |
-| **Bein** | Man fällt hin, humpelt danach, ist langsamer, kann nicht rennen/springen. Beide Beine: noch langsamer |
-| **Linker Arm** | Keine Langwaffen mehr, Zielen wackelt leicht – mit Pistole kann man weiter zurückschießen |
-| **Rechter Arm (Schusshand)** | Wie oben, Zielen wackelt stärker, Chance dass die Waffe aus der Hand gerissen wird |
+| **Bein** | Man fällt hin, humpelt danach und ist langsamer. Laufen geht, aber man stolpert und fällt immer wieder – je schneller, desto öfter. Beide Beine: noch langsamer, fällt doppelt so oft |
+| **Linker Arm** | Die Figur hält Pistolen nur noch mit einer Hand (für alle sichtbar), keine Langwaffen mehr, Zielen wackelt leicht |
+| **Rechter Arm (Schusshand)** | Wie oben (einhändig), Zielen wackelt stärker, Chance dass die Waffe aus der Hand gerissen wird |
 | **Beide Arme** | Gar nicht mehr schießen |
 | **Oberkörper** | Blutung: verliert alle paar Sekunden HP, mehrere Treffer bluten stärker |
 

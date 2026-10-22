@@ -150,6 +150,7 @@ end)
 -- Beine: humpeln, langsamer, nicht rennen/springen
 CreateThread(function()
     local limping = false
+    local nextStumbleCheck, stumbleBlockedUntil = 0, 0
     while true do
         local sleep = 500
         local ped = PlayerPedId()
@@ -168,6 +169,21 @@ CreateThread(function()
             end
             SetPedMoveRateOverride(ped, (left and right) and c.bothLegsMoveRate or c.moveRate)
             if c.noSprint then DisableControlAction(0, 21, true) end
+
+            -- einmal pro Sekunde würfeln, ob man beim Laufen hinfällt
+            local now = GetGameTimer()
+            if now >= nextStumbleCheck then
+                nextStumbleCheck = now + 1000
+                if now >= stumbleBlockedUntil and not IsPedInAnyVehicle(ped, false) and not IsPedRagdoll(ped) then
+                    local st = c.stumble
+                    local chance = IsPedSprinting(ped) and st.sprint or IsPedRunning(ped) and st.run or IsPedWalking(ped) and st.walk or 0
+                    if left and right then chance = chance * st.bothLegs end
+                    if chance > 0 and math.random() < chance then
+                        SetPedToRagdoll(ped, st.time, st.time, 0, false, false, false)
+                        stumbleBlockedUntil = now + st.time + st.cooldown * 1000
+                    end
+                end
+            end
             if c.noJump then DisableControlAction(0, 22, true) end
         elseif limping then
             limping = false
@@ -178,13 +194,48 @@ CreateThread(function()
     end
 end)
 
--- Arme: Wackeln beim Zielen, keine Langwaffen, mit beiden Armen gar nicht schießen
+-- Einhand-Animation: über einen State Bag synchronisiert, damit andere Spieler sie auch sehen
+local ONE_HAND <const> = joaat(Config.Arm.oneHandedAnim)
+
+local function applyOneHand(ped, on)
+    SetWeaponAnimationOverride(ped, on and ONE_HAND or `Default`)
+end
+
+AddStateBagChangeHandler('pulseOneHand', nil, function(bagName, _, value)
+    local player = GetPlayerFromStateBagName(bagName)
+    if player == 0 then return end
+    applyOneHand(GetPlayerPed(player), value == true)
+end)
+
+-- Spieler, die neu in Reichweite kommen, bekommen die Animation nachträglich
 CreateThread(function()
-    local shaking = false
+    while true do
+        for _, player in ipairs(GetActivePlayers()) do
+            if player ~= PlayerId() and Player(GetPlayerServerId(player)).state.pulseOneHand then
+                applyOneHand(GetPlayerPed(player), true)
+            end
+        end
+        Wait(2000)
+    end
+end)
+
+-- Arme: Einhand-Haltung, Wackeln beim Zielen, keine Langwaffen, mit beiden Armen gar nicht schießen
+CreateThread(function()
+    local shaking, oneHand, nextReapply = false, false, 0
     while true do
         local sleep = 500
         local ped = PlayerPedId()
         local left, right = isInjured('leftArm'), isInjured('rightArm')
+
+        local wantOneHand = Config.Arm.oneHanded and (left or right) and not IsEntityDead(ped)
+        if wantOneHand ~= oneHand then
+            oneHand = wantOneHand
+            applyOneHand(ped, oneHand)
+            LocalPlayer.state:set('pulseOneHand', oneHand, true)
+        elseif oneHand and GetGameTimer() >= nextReapply then
+            nextReapply = GetGameTimer() + 2000
+            applyOneHand(ped, true) -- nach Modell-/Ped-Wechsel erneut setzen
+        end
 
         if (left or right) and not IsEntityDead(ped) then
             sleep = 0

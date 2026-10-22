@@ -26,8 +26,17 @@ Config.Leg = {
     duration    = 300,          -- Sekunden humpeln (0 = bis zur Behandlung)
     moveRate    = 0.80,         -- Gehgeschwindigkeit (1.0 = normal)
     bothLegsMoveRate = 0.60,    -- wenn beide Beine getroffen sind
-    noSprint    = true,         -- nicht rennen
+    noSprint    = false,        -- true = gar nicht mehr rennen
     noJump      = true,         -- nicht springen
+    -- Hinfallen beim Laufen: Chance pro Sekunde je nach Tempo
+    stumble = {
+        walk      = 0.03,
+        run       = 0.15,
+        sprint    = 0.40,
+        bothLegs  = 2.0,        -- Faktor, wenn beide Beine verletzt sind
+        time      = 2000,       -- ms am Boden
+        cooldown  = 4           -- Sekunden nach einem Sturz ohne neuen Sturz
+    },
     clipset     = { male = 'move_m@injured', female = 'move_f@injured' }
 }
 
@@ -40,6 +49,8 @@ Config.Arm = {
     shake           = 1.2,      -- Wackeln beim Zielen, ein Arm verletzt
     shakeShootHand  = 2.5,      -- Wackeln beim Zielen, rechter Arm verletzt
     noTwoHanded     = true,     -- keine Langwaffen mehr (Gruppen unten)
+    oneHanded       = true,     -- Pistolen nur noch mit einer Hand halten (GTA-Animation 'Gang1H', für alle sichtbar)
+    oneHandedAnim   = 'Gang1H',
     bothArmsNoShoot = true,     -- beide Arme verletzt: gar nicht mehr schießen
     twoHandedGroups = { `GROUP_RIFLE`, `GROUP_MG`, `GROUP_SHOTGUN`, `GROUP_SNIPER`, `GROUP_HEAVY`, `GROUP_SMG` }
 }
