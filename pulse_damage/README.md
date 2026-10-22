@@ -31,7 +31,7 @@ Verletzungen verschwinden bei:
 
 ```
 /dmgtest kopf      Kopfschuss (sofort tot)
-/dmgtest bein      Beinschuss (lbein / rbein, zweimal für beide Beine)
+/dmgtest bein      Beinschuss (lbein / rbein, beide nacheinander = beide Beine)
 /dmgtest arm       Schusshand (rarm), larm = linker Arm, beide nacheinander = nicht mehr schießen
 /dmgtest körper    Oberkörper / Blutung
 /dmgtest heilen    alles heilen
