@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Bossmenü</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Illustrierte Icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="gHead" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7DBBFF"/><stop offset="1" stop-color="#1F66E5"/></linearGradient>
+    <linearGradient id="gIce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D6EEFF"/><stop offset="1" stop-color="#7FB4E6"/></linearGradient>
+    <linearGradient id="gSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B788E"/><stop offset="1" stop-color="#262D3B"/></linearGradient>
+    <linearGradient id="gSteelL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF7"/><stop offset="1" stop-color="#8A99B2"/></linearGradient>
+    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7A0"/><stop offset=".55" stop-color="#F2B634"/><stop offset="1" stop-color="#C9861A"/></linearGradient>
+    <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB85C"/><stop offset="1" stop-color="#EE6B2C"/></linearGradient>
+    <linearGradient id="gPaper" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9A16A"/><stop offset=".4" stop-color="#FFF1CF"/><stop offset="1" stop-color="#D9B57A"/></linearGradient>
+    <linearGradient id="gEnv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D8EE"/></linearGradient>
+
+    <symbol id="art-members" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="40" ry="5" fill="#000" opacity=".35"/><circle cx="32" cy="46" r="13" fill="url(#gIce)"/><path d="M9 94c0-18 10-29 23-29s23 11 23 29z" fill="url(#gIce)"/><circle cx="88" cy="46" r="13" fill="url(#gIce)"/><path d="M65 94c0-18 10-29 23-29s23 11 23 29z" fill="url(#gIce)"/><circle cx="60" cy="48" r="17" fill="url(#gHead)"/><path d="M28 104c0-23 14-36 32-36s32 13 32 36z" fill="url(#gHead)"/><ellipse cx="54" cy="41" rx="6" ry="4" fill="#fff" opacity=".4"/><path d="M40 82c6-6 13-8 20-8" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/><path class="spark" d="M98 12l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="url(#gGold)"/><path class="spark s2" d="M108 34l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="url(#gGold)"/></symbol>
+    <symbol id="art-safe" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="44" ry="5" fill="#000" opacity=".35"/><rect x="14" y="20" width="80" height="78" rx="12" fill="url(#gSteel)"/><rect x="22" y="28" width="58" height="62" rx="7" fill="#141A26"/><rect x="28" y="70" width="46" height="13" rx="2.5" fill="url(#gGold)"/><rect x="32" y="58" width="38" height="13" rx="2.5" fill="url(#gGold)"/><rect x="38" y="46" width="26" height="13" rx="2.5" fill="url(#gGold)"/><path d="M32 61h14M36 49h10" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/><path d="M80 26L108 16V100L80 92Z" fill="url(#gSteelL)"/><circle cx="94" cy="58" r="9" fill="#4A5568"/><circle cx="94" cy="58" r="5" fill="url(#gSteelL)"/><path d="M94 49v4" stroke="#E8EEF7" stroke-width="2" stroke-linecap="round"/><rect x="20" y="98" width="12" height="6" rx="2" fill="#262D3B"/><rect x="76" y="98" width="12" height="6" rx="2" fill="#262D3B"/><ellipse cx="22" cy="100" rx="11" ry="4" fill="#C9861A"/><ellipse cx="22" cy="96" rx="11" ry="4" fill="url(#gGold)"/><ellipse cx="22" cy="92" rx="11" ry="4" fill="url(#gGold)"/></symbol>
+    <symbol id="art-tools" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="40" ry="5" fill="#000" opacity=".35"/><path d="M24 96L70 50" stroke="url(#gSteelL)" stroke-width="13" stroke-linecap="round"/><circle cx="78" cy="40" r="19" fill="url(#gSteelL)"/><path d="M78 40L104 22L104 40Z" fill="#101B30"/><circle cx="78" cy="40" r="6" fill="#8A99B2"/><path d="M30 86L60 56" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/><path d="M30 28L70 68" stroke="url(#gSteelL)" stroke-width="5" stroke-linecap="round"/><path d="M24 22L32 30" stroke="#55657C" stroke-width="6" stroke-linecap="round"/><path d="M72 70L98 96" stroke="url(#gOrange)" stroke-width="18" stroke-linecap="round"/><path d="M80 82l6 6M86 76l6 6" stroke="#B5461C" stroke-width="2.4" stroke-linecap="round"/><path d="M76 70l12 12" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="art-logs" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="38" ry="5" fill="#000" opacity=".35"/><rect x="26" y="18" width="30" height="84" rx="8" fill="url(#gPaper)"/><ellipse cx="41" cy="18" rx="15" ry="5" fill="url(#gGold)"/><ellipse cx="41" cy="102" rx="15" ry="5" fill="#C9861A"/><rect x="62" y="26" width="32" height="76" rx="8" fill="url(#gPaper)"/><ellipse cx="78" cy="26" rx="16" ry="5" fill="url(#gGold)"/><ellipse cx="78" cy="102" rx="16" ry="5" fill="#C9861A"/><rect x="22" y="58" width="76" height="9" rx="3" fill="#E04E3E"/><circle cx="58" cy="62.5" r="7" fill="#C23A2C"/><path d="M54 68l-4 12M62 68l4 12" stroke="#E04E3E" stroke-width="4" stroke-linecap="round"/><path d="M32 30v20M68 38v14" stroke="#fff" stroke-opacity=".6" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="art-invite" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="42" ry="5" fill="#000" opacity=".35"/><path d="M14 46l46-30 46 30v52a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8z" fill="#1F66E5"/><rect x="26" y="26" width="68" height="60" rx="6" fill="url(#gEnv)"/><rect x="36" y="38" width="30" height="5" rx="2.5" fill="#9DB0CC"/><rect x="36" y="49" width="44" height="4" rx="2" fill="#C3D0E3"/><rect x="36" y="58" width="38" height="4" rx="2" fill="#C3D0E3"/><path d="M14 46l46 34 46-34v52a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8z" fill="url(#gHead)"/><path d="M14 104l38-30M106 104L68 74" stroke="#1D57CC" stroke-width="2.4"/><circle cx="60" cy="80" r="13" fill="#E04E3E"/><path d="M60 72l2.4 5 5.4.6-4 3.6 1.2 5.3L60 83.8l-5 2.7 1.2-5.3-4-3.6 5.4-.6z" fill="url(#gGold)"/><path class="spark" d="M100 10l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="url(#gGold)"/></symbol>
+</defs></svg>
+
+<div class="stage">
+    <!-- =============== Bossmenü =============== -->
+    <div class="win" id="win" hidden>
+        <header class="head">
+            <span class="logo" id="logo"><span class="lp">P</span></span>
+            <div class="head-t"><b id="brandName">PULSE ROLEPLAY</b><span>BOSSMENÜ</span></div>
+            <span class="fac"><i></i><span id="facName">Fraktion</span></span>
+            <span class="sp"></span>
+            <button type="button" class="exit" id="btnExit">Menü verlassen <kbd>ESC</kbd></button>
+        </header>
+
+        <div class="sub">
+            <button type="button" class="back" id="btnBack"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Übersicht</button>
+            <i class="sub-sep"></i>
+            <b id="viewTitle">Übersicht</b>
+            <span id="viewDesc">Verwalte deine Fraktion an einem Ort</span>
+        </div>
+
+        <main class="body" id="body"></main>
+    </div>
+
+    <!-- =============== Einladung =============== -->
+    <div class="invite" id="invite" hidden>
+        <div class="inv-art"><svg width="96" height="96" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-invite"/></svg></div>
+        <span class="inv-k">FRAKTIONSEINLADUNG</span>
+        <h2 id="invFac">Fraktion</h2>
+        <p id="invText">Du wurdest eingeladen.</p>
+        <div class="inv-facts">
+            <div><span>Rang</span><b id="invRank">-</b></div>
+            <div><span>Gehalt</span><b id="invSalary">-</b></div>
+            <div><span>Eingeladen von</span><b id="invFrom">-</b></div>
+        </div>
+        <div class="inv-btns">
+            <button type="button" class="ib no" id="invNo"><kbd>N</kbd>Ablehnen</button>
+            <button type="button" class="ib yes" id="invYes"><kbd>Y</kbd>Annehmen</button>
+        </div>
+        <div class="inv-time"><i id="invBar"></i></div>
+        <span class="inv-left" id="invLeft"></span>
+    </div>
+
+    <div class="toasts" id="toasts"></div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
