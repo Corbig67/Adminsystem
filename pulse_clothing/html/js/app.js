@@ -36,6 +36,8 @@
             { id: 'tshirt',    label: 'T-Shirt', icon: 'shirt',    d: 'tshirt_1',    t: 'tshirt_2',    price: 80,  min: 0 },
             { id: 'torso',     label: 'Oberteil', icon: 'jacket',  d: 'torso_1',     t: 'torso_2',     price: 240, min: 0 },
             { id: 'arms',      label: 'Arme',    icon: 'glove',    d: 'arms',        t: 'arms_2',      price: 60,  min: 0 },
+            { id: 'bproof',    label: 'Weste',   icon: 'vest',     d: 'bproof_1',    t: 'bproof_2',    price: 180, min: 0 },
+            { id: 'decals',    label: 'Aufkleber', icon: 'decal',  d: 'decals_1',    t: 'decals_2',    price: 50,  min: 0 },
             { id: 'pants',     label: 'Hose',    icon: 'pants',    d: 'pants_1',     t: 'pants_2',     price: 150, min: 0 },
             { id: 'shoes',     label: 'Schuhe',  icon: 'shoes',    d: 'shoes_1',     t: 'shoes_2',     price: 130, min: 0 },
             { id: 'helmet',    label: 'Kopf',    icon: 'cap',      d: 'helmet_1',    t: 'helmet_2',    price: 90,  min: -1 },
@@ -523,8 +525,8 @@
         ped.innerHTML = '<circle cx="150" cy="80" r="52" fill="#15171B"/><path d="M70 180c10-30 40-46 80-46s70 16 80 46l20 190c2 18-22 22-26 4l-18-150-6 120 10 310c1 20-36 22-38 2l-22-290-22 290c-2 20-39 18-38-2l10-310-6-120-18 150c-4 18-28 14-26-4z" fill="#15171B"/>';
         stage.insertBefore(ped, stage.firstChild);
 
-        var VALS = { tshirt_1: 15, tshirt_2: 0, torso_1: 4, torso_2: 2, arms: 0, arms_2: 0, pants_1: 24, pants_2: 1, shoes_1: 7, shoes_2: 0, helmet_1: -1, helmet_2: 0, glasses_1: 0, glasses_2: 0, mask_1: 0, mask_2: 0, chain_1: 0, chain_2: 0, watches_1: -1, watches_2: 0, bracelets_1: -1, bracelets_2: 0, bags_1: 0, bags_2: 0 };
-        var MAX = { tshirt_1: 188, tshirt_2: 7, torso_1: 420, torso_2: 11, arms: 196, arms_2: 3, pants_1: 160, pants_2: 9, shoes_1: 120, shoes_2: 15, helmet_1: 180, helmet_2: 7, glasses_1: 40, glasses_2: 9, mask_1: 220, mask_2: 5, chain_1: 150, chain_2: 3, watches_1: 40, watches_2: 5, bracelets_1: 20, bracelets_2: 3, bags_1: 90, bags_2: 23 };
+        var VALS = { tshirt_1: 15, tshirt_2: 0, torso_1: 4, torso_2: 2, arms: 0, arms_2: 0, pants_1: 24, pants_2: 1, shoes_1: 7, shoes_2: 0, helmet_1: -1, helmet_2: 0, glasses_1: 0, glasses_2: 0, mask_1: 0, mask_2: 0, chain_1: 0, chain_2: 0, watches_1: -1, watches_2: 0, bracelets_1: -1, bracelets_2: 0, bags_1: 0, bags_2: 0, bproof_1: 0, bproof_2: 0, decals_1: 0, decals_2: 0 };
+        var MAX = { tshirt_1: 188, tshirt_2: 7, torso_1: 420, torso_2: 11, arms: 196, arms_2: 3, pants_1: 160, pants_2: 9, shoes_1: 120, shoes_2: 15, helmet_1: 180, helmet_2: 7, glasses_1: 40, glasses_2: 9, mask_1: 220, mask_2: 5, chain_1: 150, chain_2: 3, watches_1: 40, watches_2: 5, bracelets_1: 20, bracelets_2: 3, bags_1: 90, bags_2: 23, bproof_1: 60, bproof_2: 5, decals_1: 120, decals_2: 9 };
         var OUTFITS = [
             { id: 1, name: 'Alltag', date: '14.10.2026', icons: ['jacket', 'pants', 'shoes'] },
             { id: 2, name: 'Arbeit', date: '02.10.2026', icons: ['shirt', 'pants', 'watch'] }

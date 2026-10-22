@@ -16,6 +16,8 @@ Config.Categories = {
     { id = 'tshirt',    label = 'T-Shirt',  icon = 'shirt',    d = 'tshirt_1',    t = 'tshirt_2',    price = 80,  min = 0 },
     { id = 'torso',     label = 'Oberteil', icon = 'jacket',   d = 'torso_1',     t = 'torso_2',     price = 240, min = 0 },
     { id = 'arms',      label = 'Arme',     icon = 'glove',    d = 'arms',        t = 'arms_2',      price = 60,  min = 0 },
+    { id = 'bproof',    label = 'Weste',     icon = 'vest',     d = 'bproof_1',    t = 'bproof_2',    price = 180, min = 0 },
+    { id = 'decals',    label = 'Aufkleber', icon = 'decal',    d = 'decals_1',    t = 'decals_2',    price = 50,  min = 0 },
     { id = 'pants',     label = 'Hose',     icon = 'pants',    d = 'pants_1',     t = 'pants_2',     price = 150, min = 0 },
     { id = 'shoes',     label = 'Schuhe',   icon = 'shoes',    d = 'shoes_1',     t = 'shoes_2',     price = 130, min = 0 },
     { id = 'helmet',    label = 'Kopf',     icon = 'cap',      d = 'helmet_1',    t = 'helmet_2',    price = 90,  min = -1 },
