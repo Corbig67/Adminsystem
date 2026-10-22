@@ -27,6 +27,18 @@ Verletzungen verschwinden bei:
 `exports.pulse_damage:GetInjuries()` liefert z. B. `{ 'leftLeg', 'bleeding' }` – praktisch für Sanitäter-Scripts.
 `/verletzungen` zeigt die eigenen Verletzungen.
 
+## Testen ohne zweiten Spieler
+
+```
+/dmgtest kopf      Kopfschuss (sofort tot)
+/dmgtest bein      Beinschuss (lbein / rbein, zweimal für beide Beine)
+/dmgtest arm       Schusshand (rarm), larm = linker Arm, beide nacheinander = nicht mehr schießen
+/dmgtest körper    Oberkörper / Blutung
+/dmgtest heilen    alles heilen
+```
+
+Auf dem Live-Server in `Config.TestCommand` ausschalten oder per ACE beschränken.
+
 ## Installation
 
 1. Ordner `pulse_damage` in `resources` legen.

@@ -262,3 +262,33 @@ if Config.Command then
         Config.Notify(#names > 0 and L.list:format(table.concat(names, ', ')) or L.none)
     end, false)
 end
+
+-- Testbefehl ---------------------------------------------------------------------------------------------------
+if Config.TestCommand.enabled then
+    local ZONES = {
+        kopf = 'head', head = 'head',
+        bein = 'leftLeg', lbein = 'leftLeg', rbein = 'rightLeg', leg = 'leftLeg',
+        arm = 'rightArm', larm = 'leftArm', rarm = 'rightArm',
+        ['körper'] = 'torso', koerper = 'torso', torso = 'torso'
+    }
+    local usage = '/' .. Config.TestCommand.name .. ' kopf | bein | lbein | rbein | arm | larm | rarm | körper | heilen'
+
+    RegisterCommand(Config.TestCommand.name, function(_, args)
+        local arg = (args[1] or ''):lower()
+        if arg == 'heilen' or arg == 'heal' then return heal(false) end
+
+        local zone = ZONES[arg]
+        if not zone then return Config.Notify(usage) end
+
+        local ped = PlayerPedId()
+        if IsEntityDead(ped) then return end
+        if zone ~= 'head' and Config.TestCommand.damage > 0 then
+            SetEntityHealth(ped, math.max(101, GetEntityHealth(ped) - Config.TestCommand.damage))
+        end
+        onHit(ped, zone)
+    end, Config.TestCommand.restricted)
+
+    TriggerEvent('chat:addSuggestion', '/' .. Config.TestCommand.name, 'Verletzung testen', {
+        { name = 'zone', help = 'kopf, bein, lbein, rbein, arm, larm, rarm, körper, heilen' }
+    })
+end

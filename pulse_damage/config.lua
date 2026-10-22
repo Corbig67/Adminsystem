@@ -70,6 +70,16 @@ Config.HealEvents = {
     'hospital:client:HealInjuries'
 }
 
+-- Testbefehl ohne zweiten Spieler: /dmgtest kopf | bein | lbein | rbein | arm | larm | rarm | körper | heilen
+-- Auf dem Live-Server ausschalten (enabled = false) oder per ACE beschränken (restricted = true und
+-- in der server.cfg z. B. add_ace group.admin command.dmgtest allow)
+Config.TestCommand = {
+    enabled    = true,
+    name       = 'dmgtest',
+    restricted = false,
+    damage     = 10              -- HP, die der Test-Treffer abzieht (Kopf tötet trotzdem)
+}
+
 -- Befehl, der die eigenen Verletzungen anzeigt (false = aus)
 Config.Command = 'verletzungen'
 
