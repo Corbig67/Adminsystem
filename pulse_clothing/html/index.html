@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Kleidungsladen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app" class="hidden">
+    <!-- Illustrierte Icons -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A94FF"/><stop offset="1" stop-color="#1D57CC"/></linearGradient>
+        <linearGradient id="gTeal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FE3D6"/><stop offset="1" stop-color="#22948A"/></linearGradient>
+        <linearGradient id="gPurple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9A6FF"/><stop offset="1" stop-color="#7A4FD8"/></linearGradient>
+        <linearGradient id="gLens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6FB0FF"/><stop offset="1" stop-color="#1A2B6E"/></linearGradient>
+        <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE38A"/><stop offset="1" stop-color="#D9A21E"/></linearGradient>
+        <linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BF0BE"/><stop offset="1" stop-color="#2FB673"/></linearGradient>
+        <linearGradient id="gPaper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D6EA"/></linearGradient>
+
+        <symbol id="i-shirt" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M22 10l-14 8 5 11 6-3v28h26V26l6 3 5-11-14-8c-1.5 3.5-5 6-10 6s-8.5-2.5-10-6z" fill="url(#gBlue)"/><path d="M22 10c1.5 3.5 5 6 10 6s8.5-2.5 10-6" stroke="#173F9E" stroke-width="2.4" fill="none"/><rect x="36" y="30" width="7" height="6" rx="1.5" fill="#fff" opacity=".35"/></symbol>
+        <symbol id="i-jacket" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M22 9l-13 7-4 33h9l3-21v27h30V28l3 21h9l-4-33-13-7-10 13z" fill="url(#gTeal)"/><path d="M22 9l10 13 10-13" fill="none" stroke="#16655E" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 22v33" stroke="#16655E" stroke-width="2"/><rect x="21" y="38" width="7" height="5" rx="1.5" fill="#fff" opacity=".3"/><rect x="36" y="38" width="7" height="5" rx="1.5" fill="#fff" opacity=".3"/></symbol>
+        <symbol id="i-glove" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M22 52V34l-7-9c-1.8-2.4 1.2-5.2 3.4-3.2L23 26V13c0-3.2 5-3.2 5 0v11-14c0-3.2 5-3.2 5 0v14-12c0-3.2 5-3.2 5 0v13-9c0-3.2 5-3.2 5 0v21c0 7-3 11-7 13v1z" fill="url(#gPurple)"/><rect x="21" y="49" width="22" height="7" rx="2" fill="#4B2E9A"/><path d="M27 32c3 1.5 7 1.5 10 0" stroke="#fff" stroke-opacity=".45" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+        <symbol id="i-pants" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M18 8h28l4 47h-12l-6-30-6 30H14z" fill="#2C4A7E"/><rect x="18" y="8" width="28" height="6" fill="#203A66"/><path d="M32 14v10" stroke="#4E70A8" stroke-width="1.6"/><path d="M21 18c3 2 6 2 8 0M35 18c2 2 5 2 8 0" stroke="#4E70A8" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+        <symbol id="i-shoes" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M8 44c0-8 2-18 6-22h12c1 6 6 10 14 12l12 3c4 1 6 4 6 8v3H8z" fill="#F4F7FC"/><path d="M8 48h50v4c0 1.5-1.2 2.5-2.6 2.5H10.6C9.2 54.5 8 53.5 8 52z" fill="#FF8A3D"/><path d="M26 26l4 3M24 31l5 2M23 36l6 1" stroke="#9DB0CC" stroke-width="1.8" stroke-linecap="round"/><path d="M36 40c6 0 12 1 18 4" stroke="#2F7BFF" stroke-width="2.6" stroke-linecap="round" fill="none"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M10 40c0-14 10-24 22-24s22 10 22 24z" fill="#FF6B5A"/><path d="M32 16c-4 6-5 15-5 24" stroke="#E04E3E" stroke-width="2.2" fill="none"/><circle cx="32" cy="16" r="2.5" fill="#E04E3E"/><path d="M8 40h40c6 0 10 2 12 5H14c-3 0-6-2-6-5z" fill="#2F7BFF"/></symbol>
+        <symbol id="i-glasses" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M4 24l4 2M60 24l-4 2" stroke="#1A2B47" stroke-width="3" stroke-linecap="round"/><rect x="7" y="24" width="21" height="16" rx="6" fill="url(#gLens)" stroke="#1A2B47" stroke-width="2.6"/><rect x="36" y="24" width="21" height="16" rx="6" fill="url(#gLens)" stroke="#1A2B47" stroke-width="2.6"/><path d="M28 29c2.4-2.2 5.6-2.2 8 0" fill="none" stroke="#1A2B47" stroke-width="2.6"/><path d="M11 30l5-3M40 30l5-3" stroke="#fff" stroke-opacity=".75" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="i-mask" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M12 19c6-4 13-6 20-6s14 2 20 6c0 17-8 31-20 31S12 36 12 19z" fill="url(#gPaper)"/><ellipse cx="23" cy="26" rx="5.2" ry="3.6" fill="#1A2B47"/><ellipse cx="41" cy="26" rx="5.2" ry="3.6" fill="#1A2B47"/><path d="M32 14v9" stroke="#FF6B5A" stroke-width="3"/><path d="M15 21l6 1M49 21l-6 1" stroke="#FF6B5A" stroke-width="2.4" stroke-linecap="round"/><path d="M23 38c3 3 6 4 9 4s6-1 9-4" stroke="#9DB0CC" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+        <symbol id="i-chain" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M12 8c0 19 9 30 20 30s20-11 20-30" fill="none" stroke="url(#gGold)" stroke-width="4.5" stroke-dasharray="3.4 2.2" stroke-linecap="round"/><circle cx="32" cy="40" r="2.6" fill="none" stroke="#D9A21E" stroke-width="2"/><path d="M32 42l7 8-7 7-7-7z" fill="url(#gBlue)"/><path d="M29 47l3-3" stroke="#fff" stroke-opacity=".7" stroke-width="1.6" stroke-linecap="round"/></symbol>
+        <symbol id="i-watch" viewBox="0 0 64 64"><ellipse cx="32" cy="60" rx="15" ry="2.2" fill="#000" opacity=".28"/><rect x="24" y="5" width="16" height="15" rx="3" fill="#2B3A55"/><rect x="24" y="44" width="16" height="14" rx="3" fill="#2B3A55"/><circle cx="32" cy="32" r="15" fill="url(#gGold)"/><circle cx="32" cy="32" r="11" fill="#F4F7FC"/><path d="M32 25v7l5 3" stroke="#1A2B47" stroke-width="2.4" stroke-linecap="round" fill="none"/><rect x="46" y="29" width="4" height="6" rx="1" fill="#D9A21E"/></symbol>
+        <symbol id="i-bracelet" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="19" ry="2.6" fill="#000" opacity=".28"/><ellipse cx="32" cy="34" rx="20" ry="12" fill="none" stroke="#2B3A55" stroke-width="2"/><circle cx="25" cy="22.5" r="3.6" fill="#5FD3C6"/><circle cx="32" cy="22" r="3.6" fill="#FFB85C"/><circle cx="39" cy="22.5" r="3.6" fill="#FF8FB8"/><circle cx="47" cy="26" r="4" fill="#2F7BFF"/><circle cx="17" cy="26" r="4" fill="#FF8FB8"/><circle cx="12.5" cy="34" r="4.4" fill="#FFB85C"/><circle cx="51.5" cy="34" r="4.4" fill="#5FD3C6"/><circle cx="16" cy="42" r="4.8" fill="#2F7BFF"/><circle cx="48" cy="42" r="4.8" fill="#FF8FB8"/><circle cx="25" cy="45.5" r="5" fill="#5FD3C6"/><circle cx="39" cy="45.5" r="5" fill="#FFB85C"/><circle cx="32" cy="46.5" r="5.2" fill="url(#gGold)"/></symbol>
+        <symbol id="i-bag" viewBox="0 0 64 64"><ellipse cx="32" cy="59" rx="19" ry="2.6" fill="#000" opacity=".28"/><path d="M24 15v-3a8 8 0 0 1 16 0v3" fill="none" stroke="#1F7A4D" stroke-width="3"/><rect x="13" y="14" width="38" height="43" rx="10" fill="url(#gGreen)"/><rect x="20" y="34" width="24" height="17" rx="5" fill="#1F7A4D" opacity=".55"/><path d="M20 39h24" stroke="#9BF0BE" stroke-width="1.6"/><rect x="29" y="22" width="6" height="4" rx="1" fill="#fff" opacity=".55"/></symbol>
+    </defs></svg>
+
+    <div class="stage">
+        <!-- Marke -->
+        <header class="brand">
+            <i class="brand-line"></i>
+            <div class="brand-row">
+                <span class="logo" id="logo"><span class="lp">P</span></span>
+                <span class="brand-name" id="brandName">PULSE ROLEPLAY</span>
+            </div>
+        </header>
+
+        <!-- Links: Auswahl -->
+        <div class="col left">
+            <h1 class="title" id="shopTitle">KLEIDUNGSLADEN</h1>
+
+            <div class="seg tabs" id="tabs" role="tablist">
+                <i class="seg-hl" id="tabHl"></i>
+                <button type="button" role="tab" data-tab="shop" class="on">Sortiment</button>
+                <button type="button" role="tab" data-tab="outfits">Meine Outfits <b class="cnt" id="outfitCount">0</b></button>
+            </div>
+
+            <section class="panel pick">
+                <div class="view" id="viewShop">
+                    <div class="tiles" id="tiles"></div>
+
+                    <div class="editor">
+                        <div class="ed-head">
+                            <svg class="ed-ic" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><use id="edIcon" href="#i-jacket"/></svg>
+                            <span class="ed-name" id="edName">OBERTEIL</span>
+                            <span class="ed-price" id="edPrice">$0</span>
+                        </div>
+
+                        <div class="row">
+                            <div class="row-top">
+                                <label for="mdl">Modell</label>
+                                <div class="stepper">
+                                    <button type="button" class="arr" data-step="-1" aria-label="Vorheriges Modell"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+                                    <span class="num"><b id="dNum">0</b><span> / <span id="dMax">0</span></span></span>
+                                    <button type="button" class="arr" data-step="1" aria-label="Nächstes Modell"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+                                </div>
+                            </div>
+                            <input id="mdl" type="range" min="0" max="10" value="0">
+                        </div>
+
+                        <div class="row">
+                            <div class="row-top">
+                                <span>Variante</span>
+                                <span class="num dim"><span id="tNum">1</span> / <span id="tMax">1</span></span>
+                            </div>
+                            <div class="chips" id="chips"></div>
+                        </div>
+
+                        <div class="ed-foot">
+                            <span id="edState">Das trägst du gerade</span>
+                            <button type="button" class="link" id="btnRevert">Teil zurücksetzen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="view" id="viewOutfits" hidden>
+                    <div class="outfits" id="outfits"></div>
+                    <p class="hint">Outfits speicherst du rechts beim Bezahlen. Anziehen ist hier kostenlos.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Kamera -->
+        <div class="cam">
+            <button type="button" class="rnd" data-rot="-1" aria-label="Nach links drehen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg></button>
+            <div class="seg" id="camSeg">
+                <i class="seg-hl" id="camHl"></i>
+                <button type="button" data-cam="head">Kopf</button>
+                <button type="button" data-cam="body" class="on">Oberkörper</button>
+                <button type="button" data-cam="legs">Beine</button>
+                <button type="button" data-cam="feet">Schuhe</button>
+                <button type="button" data-cam="full">Ganz</button>
+            </div>
+            <button type="button" class="rnd" data-rot="1" aria-label="Nach rechts drehen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4h-4"/></svg></button>
+        </div>
+        <p class="keys"><kbd>A</kbd> <kbd>D</kbd> drehen &nbsp;·&nbsp; <kbd>Q</kbd> <kbd>E</kbd> Teil &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> Modell &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> Variante &nbsp;·&nbsp; <kbd>ESC</kbd> verlassen ohne Kauf</p>
+
+        <!-- Rechts: Einkauf -->
+        <div class="col right">
+            <span class="kick">DEIN</span>
+            <span class="title">EINKAUF</span>
+
+            <section class="panel cart">
+                <div class="cart-head"><span class="mk">WARENKORB</span><span id="cartCount">0 Teile</span></div>
+                <div class="cart-list" id="cartList"></div>
+
+                <div class="pay">
+                    <span class="lbl">Bezahlen mit</span>
+                    <div class="pay-grid">
+                        <button type="button" class="pm on" data-pay="cash"><b>Bargeld</b><span id="cash">$0</span></button>
+                        <button type="button" class="pm" data-pay="bank"><b>Bankkarte</b><span id="bank">$0</span></button>
+                    </div>
+                </div>
+
+                <div class="save">
+                    <label class="chk"><input type="checkbox" id="saveChk"><i class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Als Outfit speichern</label>
+                    <div class="save-in" id="saveIn"><input type="text" id="outfitName" maxlength="24" placeholder="z. B. Freizeit" aria-label="Name des Outfits" spellcheck="false"></div>
+                </div>
+
+                <div class="total"><span>Gesamt</span><b id="total">$0</b></div>
+                <span class="err" id="payErr"></span>
+            </section>
+
+            <button type="button" class="go" id="btnBuy" disabled>
+                <span><small id="buySmall">Warenkorb leer</small><b>KAUFEN</b></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+        </div>
+
+        <div class="toasts" id="toasts"></div>
+    </div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
