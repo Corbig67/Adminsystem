@@ -2,9 +2,19 @@ local UNARMED <const> = `WEAPON_UNARMED`
 local SNIPER_GROUP <const> = Sync.norm(`GROUP_SNIPER`)
 
 -- Schaden: auf allen Clients gleich setzen (der Schütze berechnet den Schaden)
+local defaultShake = {}
+
 local function applyDamageModifiers()
     for hash, data in pairs(Sync.weapons) do
         SetWeaponDamageModifier(hash, data.damage)
+
+        -- kein Rückstoß: Kamera-Wackeln der Waffe auf 0, sonst GTA-Wert behalten
+        if data.noRecoil then
+            if defaultShake[hash] == nil then defaultShake[hash] = GetWeaponRecoilShakeAmplitude(hash) end
+            SetWeaponRecoilShakeAmplitude(hash, 0.0)
+        elseif defaultShake[hash] ~= nil then
+            SetWeaponRecoilShakeAmplitude(hash, defaultShake[hash])
+        end
     end
     SetPlayerMeleeWeaponDamageModifier(PlayerId(), Config.Rules.meleeDamage)
 end
@@ -43,7 +53,7 @@ CreateThread(function()
             if data and not data.allowed then
                 RemoveWeaponFromPed(ped, weapon)
                 SetCurrentPedWeapon(ped, UNARMED, true)
-            elseif data and Config.Recoil.enabled and data.recoil > 0 and IsPedShooting(ped) then
+            elseif data and Config.Recoil.enabled and not data.noRecoil and data.recoil > 0 and IsPedShooting(ped) then
                 addRecoil(data, ped)
             end
 

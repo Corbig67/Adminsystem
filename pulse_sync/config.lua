@@ -147,6 +147,14 @@ Config.Recoil = {
     smoothing   = 0.35      -- wie schnell der Rückstoß die Kamera bewegt (0.1 weich – 1.0 sofort)
 }
 
+-- Kein Rückstoß ----------------------------------------------------------------------------------------
+-- Entfernt das Hochziehen/Wackeln der Kamera beim Schießen für ganze Gruppen.
+-- Einzelne Waffen: noRecoil = true / false in Config.Weapons (überschreibt die Gruppe),
+-- z. B. WEAPON_PISTOL50 = { group = 'pistol', noRecoil = false } für etwas Rückstoß bei der .50
+Config.NoRecoil = {
+    pistol = true
+}
+
 -- Kampfregeln (für alle Spieler gleich) --------------------------------------------------------------
 Config.Rules = {
     noCombatRoll     = true,     -- keine Kampfrolle beim Zielen

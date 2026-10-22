@@ -8,6 +8,7 @@ Eigenständig, keine Abhängigkeiten, braucht **OneSync** für die Server-Prüfu
 **Für alle Spieler gleich**
 - Schaden pro Waffe (Multiplikator, Standard 1.0 = GTA)
 - Rückstoß und Fadenkreuz bleiben GTA-Standard (optional: eigener Rückstoß mit `Config.Recoil.enabled = true`)
+- Kein Rückstoß bei allen Pistolen (`Config.NoRecoil`, weitere Gruppen oder einzelne Waffen möglich)
 - Keine Kampfrolle, kein Pistolenschlag (einstellbar)
 - Kopfschüsse an/aus, Faustschlag-Schaden, NPCs lassen keine Waffen fallen
 - Gesperrte Waffen (`allowed = false`) werden sofort entfernt
