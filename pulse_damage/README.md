@@ -39,6 +39,10 @@ Verletzungen verschwinden bei:
 
 Auf dem Live-Server in `Config.TestCommand` ausschalten oder per ACE beschränken.
 
+## Hinweis Einhand-Haltung
+
+Die Einhand-Haltung kommt aus `data/weaponanimations.meta`. Nach dem Einbauen oder Ändern dieser Datei muss man **neu verbinden** – ein `restart pulse_damage` lädt Meta-Dateien nicht neu.
+
 ## Installation
 
 1. Ordner `pulse_damage` in `resources` legen.

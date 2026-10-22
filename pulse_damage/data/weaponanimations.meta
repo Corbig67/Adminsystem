@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Einhand-Haltung (Gang1H) für Pistolen, nutzt die eingebauten GTA-Animationen -->
+<CWeaponAnimationsSets>
+  <WeaponAnimationsSets>
+    <Item key="Gang1H">
+        <Fallback>Default</Fallback>
+        <WeaponAnimations>
+            <Item key="WEAPON_PISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_PISTOL_MK2">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_COMBATPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_APPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_STUNGUN">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_STUNGUN_MP">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_PISTOL50">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_SNSPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_SNSPISTOL_MK2">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_HEAVYPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_VINTAGEPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_FLAREGUN">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_MARKSMANPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_REVOLVER">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_REVOLVER_MK2">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_DOUBLEACTION">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_RAYPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_CERAMICPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_NAVYREVOLVER">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_GADGETPISTOL">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+            <Item key="WEAPON_PISTOLXM3">
+                <WeaponClipSetHash>weapons@pistol_1h@gang</WeaponClipSetHash>
+                <WeaponClipSetStreamedHash>weapons@pistol_1h@gang_str</WeaponClipSetStreamedHash>
+                <FiringVariationsStandingClipSetHash>combat_fire_variations_gang_pistol_1H</FiringVariationsStandingClipSetHash>
+                <MotionFilterHash>BothArms_filter</MotionFilterHash>
+                <UseLeftHandIKAllowTags value="true" />
+                <SwapWeaponFilterHash>RightArm_NoSpine_filter</SwapWeaponFilterHash>
+                <SwapWeaponInLowCoverFilterHash>RightArm_NoSpine_filter</SwapWeaponInLowCoverFilterHash>
+            </Item>
+        </WeaponAnimations>
+    </Item>
+  </WeaponAnimationsSets>
+</CWeaponAnimationsSets>
